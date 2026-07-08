@@ -30,7 +30,7 @@ async function runDemo() {
   } catch {}
 
   // Write file
-  await fsp.writeFile(file, 'fs.promises read: Hello from fs.promises!', 'utf8');
+  await fsp.writeFile(file, 'Hello from fs.promises!', 'utf8');
 
   // Read file
   const content = await fsp.readFile(file, 'utf8');
@@ -69,7 +69,7 @@ async function streamDemo() {
     });
 
     readStream.on('end', () => {
-      console.log('Finished reading large file with streams');
+      console.log('Finished reading large file with streams.');
     });
   });
 }
