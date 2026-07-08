@@ -15,8 +15,11 @@ const path = require('path');
 
 // 1. Callback style
 fs.readFile(sampleTxt, 'utf8', (err, data) => {
-  if (err) return;
-  console.log('Callback read: ', data);
+  if (err){
+        console.error('Callback error:', err);
+   return;
+  }
+  console.log(`Callback read: ${data}`);
 });
 
   // Callback hell example (test and leave it in comments):
@@ -44,14 +47,14 @@ function readFilePromise() {
 }
 
 readFilePromise()
-  .then((data) => console.log('Promise read: ', data))
+  .then((data) => console.log(`Promise read: ${data}`))
   .catch(() => {});
 
       // 3. Async/Await style
 async function readAsync() {
   try {
     const data = await readFilePromise();
-    console.log('Async/Await read: ', data);
+    console.log(`Async/Await read: ${data}`);
   } catch {}
 }
 
